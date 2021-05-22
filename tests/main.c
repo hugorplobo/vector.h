@@ -1,24 +1,57 @@
 #include <stdio.h>
-#include "vector.h"
+#include "vector_int.h"
+#include "vector_char.h"
+#include "vector_float.h"
+#include "vector_double.h"
 
 int main() {
-    vector teste = createVector(1);
+    vectorInt testInt = createVectorInt(1);
 
-    push(&teste, 2);
-    push(&teste, 3);
-    push(&teste, 4);
+    pushInt(&testInt, 2);
+    pushInt(&testInt, 3);
+    pushInt(&testInt, 4);
 
-    printf("Iterators: \n");
+    popInt(&testInt);
 
-    for (iterator i = begin(&teste); i != end(&teste); ++i) {
-        printf("%d ", *i);
-    }
+    getAtInt(&testInt, 2);
 
-    printf("\n\nPop: \n");
+    clearInt(&testInt);
 
-    pop(&teste);
+    vectorChar testChar = createVectorChar('H');
 
-    printf("%d", back(&teste));
+    pushChar(&testChar, 'u');
+    pushChar(&testChar, 'g');
+    pushChar(&testChar, 'o');
+
+    popChar(&testChar);
+
+    getAtChar(&testChar, 3);
+
+    clearChar(&testChar);
+
+    vectorFloat testFloat = createVectorFloat(0.0);
+
+    pushFloat(&testFloat, 8.5);
+    pushFloat(&testFloat, 76.34);
+    pushFloat(&testFloat, 1987.273);
+
+    popFloat(&testFloat);
+
+    getAtFloat(&testFloat, 1);
+
+    clearFloat(&testFloat);
+
+    vectorDouble testDouble = createVectorDouble(0.0);
+
+    pushDouble(&testDouble, 9827.28134);
+    pushDouble(&testDouble, 34567.9987654);
+    pushDouble(&testDouble, 12.09876543456);
+
+    popDouble(&testDouble);
+
+    getAtDouble(&testDouble, 0);
+
+    clearDouble(&testDouble);
 
     return 0;
 }
