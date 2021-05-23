@@ -7,39 +7,39 @@
 typedef struct {
     double* _items;
     int size;
-} vectorDouble;
+} VectorDouble;
 
-typedef double* iteratorDouble;
+typedef double* IteratorDouble;
 
-vectorDouble createVectorDouble(double init) {
-    vectorDouble v;
+VectorDouble createVectorDouble(double init) {
+    VectorDouble v;
     v._items = (double*) malloc(sizeof(double));
     v._items[0] = init;
     v.size = 1;
     return v;
 }
 
-int sizeDouble(vectorDouble* v) {
+int sizeDouble(VectorDouble* v) {
     return v->size;
 }
 
-double frontDouble(vectorDouble* v) {
+double frontDouble(VectorDouble* v) {
     return v->_items[0];
 }
 
-double backDouble(vectorDouble* v) {
+double backDouble(VectorDouble* v) {
     return v->_items[v->size - 1];
 }
 
-double getAtDouble(vectorDouble* v, int pos) {
+double getAtDouble(VectorDouble* v, int pos) {
     return v->_items[pos];
 }
 
-void setAtDouble(vectorDouble* v, int pos, double n) {
+void setAtDouble(VectorDouble* v, int pos, double n) {
     v->_items[pos] = n;
 }
 
-void pushDouble(vectorDouble* v, double item) {
+void pushDouble(VectorDouble* v, double item) {
     v->_items = (double*) realloc(v->_items, (v->size + 1) * sizeof(double));
     if (v->_items == NULL) {
         printf("Fail to allocate memory, halting process.");
@@ -51,7 +51,7 @@ void pushDouble(vectorDouble* v, double item) {
     v->_items[v->size - 1] = item;
 }
 
-void popDouble(vectorDouble* v) {
+void popDouble(VectorDouble* v) {
    v->_items = (double*) realloc(v->_items, (v->size - 1) * sizeof(double));
    if (v->_items == NULL) {
        printf("Fail to reallocate memory, halting process.");
@@ -61,13 +61,13 @@ void popDouble(vectorDouble* v) {
    --v->size;
 }
 
-void eraseDouble(vectorDouble* v, int pos1, int pos2) {
+void eraseDouble(VectorDouble* v, int pos1, int pos2) {
     for (int i = pos1; i <= pos2; ++i) {
         v->_items[i] = 0.0;
     }
 }
 
-void clearDouble(vectorDouble* v) {
+void clearDouble(VectorDouble* v) {
     v->_items = (double*) realloc(v->_items, sizeof(double));
     if (v->_items == NULL) {
         printf("Fail to reallocate memory, halting process.");
@@ -78,11 +78,11 @@ void clearDouble(vectorDouble* v) {
     v->size = 1;
 }
 
-iteratorDouble beginDouble(vectorDouble* v) {
+IteratorDouble beginDouble(VectorDouble* v) {
     return v->_items;
 }
 
-iteratorDouble endDouble(vectorDouble* v) {
+IteratorDouble endDouble(VectorDouble* v) {
     return v->_items + v->size;
 }
 

@@ -7,39 +7,39 @@
 typedef struct {
     float* _items;
     int size;
-} vectorFloat;
+} VectorFloat;
 
-typedef float* iteratorFloat;
+typedef float* IteratorFloat;
 
-vectorFloat createVectorFloat(float init) {
-    vectorFloat v;
+VectorFloat createVectorFloat(float init) {
+    VectorFloat v;
     v._items = (float*) malloc(sizeof(float));
     v._items[0] = init;
     v.size = 1;
     return v;
 }
 
-int sizeFloat(vectorFloat* v) {
+int sizeFloat(VectorFloat* v) {
     return v->size;
 }
 
-float frontFloat(vectorFloat* v) {
+float frontFloat(VectorFloat* v) {
     return v->_items[0];
 }
 
-float backFloat(vectorFloat* v) {
+float backFloat(VectorFloat* v) {
     return v->_items[v->size - 1];
 }
 
-float getAtFloat(vectorFloat* v, int pos) {
+float getAtFloat(VectorFloat* v, int pos) {
     return v->_items[pos];
 }
 
-void setAtFloat(vectorFloat* v, int pos, float n) {
+void setAtFloat(VectorFloat* v, int pos, float n) {
     v->_items[pos] = n;
 }
 
-void pushFloat(vectorFloat* v, float item) {
+void pushFloat(VectorFloat* v, float item) {
     v->_items = (float*) realloc(v->_items, (v->size + 1) * sizeof(float));
     if (v->_items == NULL) {
         printf("Fail to allocate memory, halting process.");
@@ -51,7 +51,7 @@ void pushFloat(vectorFloat* v, float item) {
     v->_items[v->size - 1] = item;
 }
 
-void popFloat(vectorFloat* v) {
+void popFloat(VectorFloat* v) {
    v->_items = (float*) realloc(v->_items, (v->size - 1) * sizeof(float));
    if (v->_items == NULL) {
        printf("Fail to reallocate memory, halting process.");
@@ -61,13 +61,13 @@ void popFloat(vectorFloat* v) {
    --v->size;
 }
 
-void eraseFloat(vectorFloat* v, int pos1, int pos2) {
+void eraseFloat(VectorFloat* v, int pos1, int pos2) {
     for (int i = pos1; i <= pos2; ++i) {
         v->_items[i] = 0.0;
     }
 }
 
-void clearFloat(vectorFloat* v) {
+void clearFloat(VectorFloat* v) {
     v->_items = (float*) realloc(v->_items, sizeof(float));
     if (v->_items == NULL) {
         printf("Fail to reallocate memory, halting process.");
@@ -78,11 +78,11 @@ void clearFloat(vectorFloat* v) {
     v->size = 1;
 }
 
-iteratorFloat beginFloat(vectorFloat* v) {
+IteratorFloat beginFloat(VectorFloat* v) {
     return v->_items;
 }
 
-iteratorFloat endFloat(vectorFloat* v) {
+IteratorFloat endFloat(VectorFloat* v) {
     return v->_items + v->size;
 }
 

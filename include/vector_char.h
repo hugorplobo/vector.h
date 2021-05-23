@@ -7,39 +7,39 @@
 typedef struct {
     char* _items;
     int size;
-} vectorChar;
+} VectorChar;
 
-typedef char* iteratorChar;
+typedef char* IteratorChar;
 
-vectorChar createVectorChar(char init) {
-    vectorChar v;
+VectorChar createVectorChar(char init) {
+    VectorChar v;
     v._items = (char*) malloc(sizeof(char));
     v._items[0] = init;
     v.size = 1;
     return v;
 }
 
-int sizeChar(vectorChar* v) {
+int sizeChar(VectorChar* v) {
     return v->size;
 }
 
-char frontChar(vectorChar* v) {
+char frontChar(VectorChar* v) {
     return v->_items[0];
 }
 
-char backChar(vectorChar* v) {
+char backChar(VectorChar* v) {
     return v->_items[v->size - 1];
 }
 
-char getAtChar(vectorChar* v, int pos) {
+char getAtChar(VectorChar* v, int pos) {
     return v->_items[pos];
 }
 
-void setAtChar(vectorChar* v, int pos, char n) {
+void setAtChar(VectorChar* v, int pos, char n) {
     v->_items[pos] = n;
 }
 
-void pushChar(vectorChar* v, char item) {
+void pushChar(VectorChar* v, char item) {
     v->_items = (char*) realloc(v->_items, (v->size + 1) * sizeof(char));
     if (v->_items == NULL) {
         printf("Fail to allocate memory, halting process.");
@@ -51,7 +51,7 @@ void pushChar(vectorChar* v, char item) {
     v->_items[v->size - 1] = item;
 }
 
-void popChar(vectorChar* v) {
+void popChar(VectorChar* v) {
    v->_items = (char*) realloc(v->_items, (v->size - 1) * sizeof(char));
    if (v->_items == NULL) {
        printf("Fail to reallocate memory, halting process.");
@@ -61,13 +61,13 @@ void popChar(vectorChar* v) {
    --v->size;
 }
 
-void eraseChar(vectorChar* v, int pos1, int pos2) {
+void eraseChar(VectorChar* v, int pos1, int pos2) {
     for (int i = pos1; i <= pos2; ++i) {
         v->_items[i] = ' ';
     }
 }
 
-void clearChar(vectorChar* v) {
+void clearChar(VectorChar* v) {
     v->_items = (char*) realloc(v->_items, sizeof(char));
     if (v->_items == NULL) {
         printf("Fail to reallocate memory, halting process.");
@@ -78,11 +78,11 @@ void clearChar(vectorChar* v) {
     v->size = 1;
 }
 
-iteratorChar beginChar(vectorChar* v) {
+IteratorChar beginChar(VectorChar* v) {
     return v->_items;
 }
 
-iteratorChar endChar(vectorChar* v) {
+IteratorChar endChar(VectorChar* v) {
     return v->_items + v->size;
 }
 

@@ -1,11 +1,11 @@
 #include <stdio.h>
-#include "vector_int.h"
-#include "vector_char.h"
-#include "vector_float.h"
-#include "vector_double.h"
+#include "Vector_int.h"
+#include "Vector_char.h"
+#include "Vector_float.h"
+#include "Vector_double.h"
 
 int main() {
-    vectorInt testInt = createVectorInt(1);
+    VectorInt testInt = createVectorInt(1);
 
     pushInt(&testInt, 2);
     pushInt(&testInt, 3);
@@ -17,7 +17,7 @@ int main() {
 
     clearInt(&testInt);
 
-    vectorChar testChar = createVectorChar('H');
+    VectorChar testChar = createVectorChar('H');
 
     pushChar(&testChar, 'u');
     pushChar(&testChar, 'g');
@@ -29,7 +29,7 @@ int main() {
 
     clearChar(&testChar);
 
-    vectorFloat testFloat = createVectorFloat(0.0);
+    VectorFloat testFloat = createVectorFloat(0.0);
 
     pushFloat(&testFloat, 8.5);
     pushFloat(&testFloat, 76.34);
@@ -41,7 +41,7 @@ int main() {
 
     clearFloat(&testFloat);
 
-    vectorDouble testDouble = createVectorDouble(0.0);
+    VectorDouble testDouble = createVectorDouble(0.0);
 
     pushDouble(&testDouble, 9827.28134);
     pushDouble(&testDouble, 34567.9987654);
