@@ -2,7 +2,7 @@
 A simple header that provide a based C++ vector structure in C
 
 ## How it works
-The library uses dynamic memory allocation to create a container structure that resize itself based on its elements.
+The library uses dynamic memory allocation to create a container structure that resizes itself based on its elements.
 
 ### Limitations
 Since it's build in C, there are no classes, templates or overloading, so there are 4 headers, one for each primitive type (_char, int, float, double_). I have plans to implement a generic version using void ponters and type casting them.
@@ -17,10 +17,10 @@ Just add the `vector_*.h` (pick the types you need) from `include/vector/vector*
 
 ## Usage
 
-The headers contain declaration for:
+The headers contain declarations for:
 
 1. A struct representing the vector
-2. A iterator type
+2. An iterator type
 3. Some functions
 
 Just `#include` the header you need and create a new Vector as shown below:
@@ -34,7 +34,7 @@ int main() {
 }
 ```
 
-**Important:** If your project doesn't have a include folder, use the `#include "vector_*.h"` directive instead!
+**Important:** If your project doesn't have an include folder, use the `#include "vector_*.h"` directive instead!
 
 ## Ok, but what can I do with this thing?
 
