@@ -122,7 +122,7 @@ clearInt(&list); // [0, 0, 0, 0, 0]
 > Returns a pointer to the first element (The example will be in the next function)
 
 12. `IteratorInt endInt(VectorInt*)`
-> Returns a pointe to the last element
+> Returns a pointer to the last element
 
 ```c
 VectorInt numbers = createVectorInt(0);
