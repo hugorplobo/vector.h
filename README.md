@@ -5,7 +5,7 @@ A simple header that provide a based C++ vector structure in C
 The library uses dynamic memory allocation to create a container structure that resizes itself based on its elements.
 
 ### Limitations
-Since it's build in C, there are no classes, templates or overloading, so there are 4 headers, one for each primitive type (_char, int, float, double_). I have plans to implement a generic version using void ponters and type casting them.
+Since it's build in C, there are no classes, templates or overloading, so there are 4 headers, one for each primitive type (_char, int, float, double_).
 
 ## Installation
 
